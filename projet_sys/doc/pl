@@ -1,0 +1,77 @@
+Rapport de projet de Système
+
+Dans ce projet, il nous était demandé d'écrire un petit jeu dans lequel le but est de taper le plus vite possible les mots qui apparaissent à l'écran.
+Ce projet de compose de deux programmes un client et un serveur. Le rôle du client est d'afficher les mots envoyés par le serveur et d'envoyer au serveur les mots que le joueur tape. Le serveur reçoit les mots taper par le client et en envoit d'autres en fonction de certains paramètres.
+
+1) Le serveur :
+
+Le programme serveur dispose des fonctionnalitées suivantes :
+- gestion des sockets
+- gestion des équipes
+- gestion des messages
+- un fichier de configuration contenant les différentes options du jeu
+- une console permettant de lancer plusieurs serveurs depuis le même programme, ainsi que changer certaines options à la volée
+
+ 1.1) Fichier de configuration :
+
+Le programme serveur a besoin pour fonctionner d'un fichier de configuration contenant toutes les valeurs d'initialisation d'une partie. Ce fichier doit s'appeler sv.cfg et doit se trouver dans le répertoire depuis lequel on lance le programme.
+Voici un exemple de fichier de configuration :
+
+/* ************ */
+
+# commentaire
+
+sv_max_clients = 10
+sv_entry_msg = Hello ;)
+
+game_width = 100
+game_height = 15
+
+
+game_limit = 100
+
+game_type = 0
+
+game_speed = 0.5
+game_accel = 0.02
+
+game_accel_timeout = 7.0
+
+dict_file = dict.txt
+dict_num = 10000
+
+/* ************ */
+
+Détail des options :
+
+sv_max_clients : nombre maximum de clients
+sv_entry_msg : Message d'entrée sur le serveur (envoyé aux clients lors de la connection)
+game_width : largeur de la table de jeu
+game_height : hauteur de la table de jeu
+game_limit : nombre de mots avant la fin du jeu
+game_type : type de jeu
+game_speed : vitesse du jeu (en mots par secondes)
+game_accel : accélération du jeu
+game_accel_timeout : interval de temps au bout du quel on recalcule la vitesse du jeu
+dict_file : nom du fichier du dictionnaire (position relative au répertoire courant)
+dict_num : nombre de mots à charger depuis le fichier dictionnaire.
+
+ 1.2) Utilisation :
+
+Lorsque l'on exécute le programme serveur, aucun serveur n'est lancé par défaut. On se trouve sur une console permettant de lancer des commandes. Voici la liste des commandes :
+
+quit : quitter le programme
+help / list : afficher la liste des commandes
+sv_prev / sv_next : passer au serveur précédent / suivant
+sv_create : lancer un nouveau serveur (le port doit être précisé)
+sv_destroy : détruire le serveur courant
+sv_start : lancer la partie sur le serveur courant
+sv_stop : stopper le serveur sur le serveur courant
+sv_pause : mettre le serveur en pause
+sv_unpause : enlever le serveur du mode pause
+sv_list : liste des clients sur le serveur
+sv_kick : déconnecter un client (il faut préciser son nom)
+sv_get : afficher la valeur d'une option du serveur (il faut préciser l'option)
+sv_get : positionner la valeur d'une option (il faut préciser l'option et la valeur)
+
+ 1.3) 

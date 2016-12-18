@@ -1,0 +1,14 @@
+
+int trois() {
+   int a, b;
+   return 3;
+}
+
+
+void sesame(array args) {
+  array tab=allocate(2,3);
+  tab[0,0] = trois();
+  print tab[0,0]+1;
+}
+
+

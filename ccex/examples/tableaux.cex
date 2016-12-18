@@ -1,0 +1,63 @@
+/*
+ * cette fonction verifie que les tableaux a et b sont identiques
+ * a partir de la dimension d pour les indices des dimensions inférieures
+ * fixées dans temp
+ */
+int compare(array a, array b, int d, array temp) {
+  if (a.length(d)!=b.length(d)) return 0;
+  if (d==a.dimension) {
+    return a[[temp]]==b[[temp]];
+  }
+  else {
+    int i; // implicitement initialise a 0
+    while (i<a.length(d)) {
+      temp[d]=i;
+      if (compare(a,b,d+1,temp)==0) return 0;
+      i=i+1;
+    }
+    return 1;
+  }
+}
+
+/*
+ * cette fonction retourne 1 si les tableaux a et b sont egaux, 0 sinon
+ */
+int egalite_tableaux(array a,array b) {
+  if (a==null) {
+    return b==null;
+  }
+  if (b==null) return 0;
+  if (a.dimension!=b.dimension) return 0;
+  array temp=allocate(a.dimension);
+  return compare(a,b,0,temp);
+}
+
+
+
+
+/*
+ * fonction principale du programme
+ */
+void sesame(array args) {
+  array tab=allocate(2,3);
+  array tab2=allocate(2,3);
+  int i=0;
+  int j=0;
+  while (i<2) {
+	  j = 0;
+    while (j<3) {
+       tab[i,j]=i*j;
+       tab2[i,j]=i*j;
+       print tab[i,j];
+       j=j+1;
+    }
+    i=i+1;
+  }
+  if (egalite_tableaux(tab,tab2)) {
+    print "Le tableau \n";
+    print tab;
+    print "\nest identique au tableau \n";
+    print tab2;
+    print "\n";
+  }
+}

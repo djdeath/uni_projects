@@ -1,0 +1,20 @@
+# commentaire
+
+sv_max_clients = 10
+sv_entry_msg = Phallus ;)
+
+game_width = 100
+game_height = 15
+
+
+game_limit = 100
+
+game_type = 0
+
+game_speed = 0.5
+game_accel = 0.02
+
+game_accel_timeout = 7.0
+
+dict_file = dict.txt
+dict_num = 10000

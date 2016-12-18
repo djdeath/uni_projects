@@ -1,0 +1,61 @@
+Installation rapide :
+---------------------
+
+Exécuter d'abord le script de configuration des sources :
+$ ./configure
+puis make
+$ make
+
+Arborescence de l'archive :
+---------------------------
+
+Le répertoire src contient toutes les sources nécessaire à la compilation du programme hpress.
+Le répertoire doc contient la documentation du projet (le rapport) au format Open Office.
+
+Utilisation de programme hpress :
+---------------------------------
+
+Le programme hpress tente de reproduire le comportement de base de la commande gzip.
+
+La commande suivante a pour effet de compresser le fichier foo et place le résultat dans
+le fichier foo.H .
+
+$ hpress foo
+
+La commande suivante a pour effet de décompresser le fichier foo.H et place le résultat
+dans le fichier foo.H.D .
+
+$ hpress foo.H
+
+Il est possible de concaténer deux fichiers compressés :
+
+$ hpress -c file1  > foo.H
+$ hpress -c file2 >> foo.H
+
+La commande suivante
+
+$ hpress -dc foo.H
+
+est équivalente à
+
+$ cat file1 file2
+
+La commande suivante
+
+$ cat file1 file2 | hpress > foo.H
+
+compresse mieux que
+
+$ hpress -c file1 file2 > foo.H
+
+Il est possible de recompresser des fichiers déjà compressés et concaténés :
+
+$ hpress -cd old.H | hpress > new.H
+
+La commande hpress peut être utilisée comme sous programme de compression par la commande
+tar de cette manière :
+
+$ tar --use-compress-program hpress -cf ../Confessions.txt.tar.H .
+
+en supposant que le binaire hpress se trouve dans un des répertoire contenu dans la
+variable d'environnement $PATH

@@ -1,0 +1,36 @@
+void func2 (int v);
+
+void func1 (int v)
+{
+	if (v < 0)
+		return;
+	
+	print "je suis la function func1 ";
+	print v;
+	print "\n";
+	
+	func2 (v - 1);
+	
+	return;
+}
+
+void
+func2 (int v)
+{
+	if (v < 0)
+		return;
+	print "je suis la function func2 ";
+	print v;
+	print "\n";
+	
+	func1 (v - 1);
+	
+	return ;
+}
+
+void
+sesame (array args)
+{
+	print "plop\n";
+	func1 (5);
+}

@@ -1,0 +1,51 @@
+throwable StupidCalculusException extends SuckerException;
+
+
+int est_divisible_par(int a,int b) {
+  if (a<b) throw StupidCalculusException;
+  return (a%b)==0;
+}
+
+
+
+void test_modulo() {
+  print "entrez un nombre a:";
+  int a=input;
+  print "entrez un nombre b:";
+  int resultat; // = 0 implicitement
+  try {
+    // la saisie de b est faite directement dans l'appel de fonction
+    resultat=est_divisible_par(a,input);
+    if (resultat)
+      print "a est divisible par b\n";
+    else
+      print "a n'est pas divisible par b\n";
+  }
+  catch DivisionByZeroException {
+    print "erreur: b ne doit pas etre nul\n";
+  }
+  catch NumberFormatException {
+    print "erreur de saisie pour b\n";
+  }
+}
+
+
+void sesame(array args) {
+  print "il y a ";
+  print args.length(0);
+  print " arguments sur la ligne de commande\n";
+
+  try {
+    test_modulo();
+  }
+  catch NumberFormatException {
+    print "erreur de saisie pour a\n";
+  }
+  catch StupidCalculusException {
+    print "ce test est sans interet !\n";
+  }
+  finally {
+    print "fin du programme\n";
+  }
+}
+

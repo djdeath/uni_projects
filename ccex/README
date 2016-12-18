@@ -1,0 +1,25 @@
+GROUPE :
+
+Anis Kadri <akadri@etudiant.univ-mlv.fr>
+Julien Ducrey <jducrey@etudiant.univ-mlv.fr>
+Lionel Landwerlin <llander@etudiant.univ-mlv.fr>
+
+COMPILATION :
+
+Pour compiler notre projet, il suffit de taper make à la racine du
+répertoire des sources.
+
+EXECUTION :
+
+Pour compiler un fichier source C-ex il faut lancer le script run.sh.
+Example :
+
+	./run.sh test.cex
+
+Le fichier binaire généré sera cex.out.
+
+INFORMATION :
+
+Les fichiers dans le répertoire examples compilent tous, et s'exécutes tous
+exceptée le fichier exceptions.cex, notre gestion des exceptions étant
+partiellement gérée.

@@ -1,0 +1,46 @@
+int fork (void);
+
+int sleep (int s);
+
+void
+pere ()
+{
+	int i;
+	
+	while (i < 12)
+	{
+		sleep (1);
+		print "fils\n";
+		i = i + 1;
+	}
+}
+
+void
+fils ()
+{
+	int i;
+	
+	while (i < 12)
+	{
+		sleep (2);
+		print "pere\n";
+		i = i + 1;
+	}
+		
+}
+
+void
+sesame (array args)
+{
+	int ret = fork ();
+	
+	if (ret == -1)
+		print "erreur\n";
+	else
+	{
+		if (ret == 0)
+			fils ();
+		else
+			pere ();
+	}
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-15">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.1  (Linux)">
+	<META NAME="CREATED" CONTENT="20040426;19181300">
+	<META NAME="CHANGED" CONTENT="20040429;20494200">
+	<STYLE>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="fr-FR" DIR="LTR">
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0cm; font-style: normal; text-decoration: none">
+<FONT SIZE=4 STYLE="font-size: 16pt"><B>Rapport de projet de Syst&egrave;me</B></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Dans ce projet, il nous
+tait demand&eacute; d'&eacute;crire un petit jeu dans lequel le but
+est de taper le plus vite possible les mots qui apparaissent 
+l'&eacute;cran.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Ce projet de compose de
+deux programmes un client et un serveur. Le r&ocirc;le du client est
+d'afficher les mots envoy&eacute;s par le serveur et d'envoyer au
+serveur les mots que le joueur tape. Le serveur re&ccedil;oit les
+mots taper par le client et en envoie d'autres en fonction de
+certains param&egrave;tres.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<OL>
+	<LI><P ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT SIZE=4><U><B><SPAN STYLE="background: transparent">Le
+	serveur :</SPAN></B></U></FONT></P>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none; page-break-before: auto">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Le programme serveur
+dispose des fonctionnalites suivantes :</P>
+<UL>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Gestion des sockets</P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Gestion des &eacute;quipes</P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Gestion des messages</P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Envois de s&eacute;quences
+	d'&eacute;chappement ANSI (coloration des mots)</P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Un fichier de
+	configuration contenant les diff&eacute;rentes options du jeu</P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Une console
+	permettant de lancer plusieurs serveurs depuis le m&ecirc;me
+	programme, ainsi que changer certaines options  la vol&eacute;e</P>
+</UL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<OL>
+	<OL>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><U>Fichier de
+		configuration :</U></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Le programme serveur a
+besoin pour fonctionner d'un fichier de configuration contenant
+toutes les valeurs d'initialisation d'une partie. Ce fichier doit
+s'appeler sv.cfg et doit se trouver dans le r&eacute;pertoire depuis
+lequel on lance le programme.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Voici un exemple de
+fichier de configuration :</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I># commentaire</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_max_clients = 10</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_entry_msg = Hello
+;)</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_width = 100</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_height = 15</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_limit = 100</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_type = 0</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_speed = 0.5</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_accel = 0.02</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_accel_timeout =
+7.0</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>dict_file = dict.txt</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>dict_num = 10000</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">D&eacute;tail des options
+:</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_max_clients</I> :
+nombre maximum de clients</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_entry_msg</I> :
+Message d'entre sur le serveur (envoy&eacute; aux clients lors de la
+connexion)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_width</I> :
+largeur de la table de jeu</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_height</I> :
+hauteur de la table de jeu</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_limit</I> :
+nombre de mots avant la fin du jeu</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_type</I> : type
+de jeu (0 pour statique, 1 pour dynamique)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_speed</I> :
+vitesse du jeu (en mots par secondes)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_accel</I> :
+acclration du jeu</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>game_accel_timeout</I>
+: intervalle de temps au bout du quel on recalcule la vitesse du jeu</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>dict_file</I> : nom du
+fichier du dictionnaire (position relative au r&eacute;pertoire
+courant)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>dict_num</I> : nombre
+de mots  charger depuis le fichier dictionnaire.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Les options
+<I>sv_max_clients</I>, <I>sv_entry_msg </I><SPAN STYLE="font-style: normal">et
+</SPAN><I>game_limit</I><SPAN STYLE="font-style: normal"> peuvent
+&ecirc;tre chang&eacute;es &agrave; la vol&eacute;e pendant qu'un
+serveur fonctionne. Les options </SPAN><I>game_speed</I><SPAN STYLE="font-style: normal">,
+</SPAN><I>game_accel</I><SPAN STYLE="font-style: normal">,
+</SPAN><I>game_accel_timeout</I><SPAN STYLE="font-style: normal">, et
+</SPAN><I>game_type</I><SPAN STYLE="font-style: normal"> n&eacute;cessite
+de stopper le serveur et de le red&eacute;marrer (</SPAN><I>sv_stop</I><SPAN STYLE="font-style: normal">
+</SPAN><I>sv_start</I><SPAN STYLE="font-style: normal">) pour prendre
+effet. Ce qui n'implique pas de d&eacute;connexion des clients. Enfin
+les options </SPAN><I>dict_file</I><SPAN STYLE="font-style: normal">
+et </SPAN><I>dict_num</I><SPAN STYLE="font-style: normal"> n&eacute;cessite
+de d&eacute;truire le serveur et d'en recr&eacute;er un autre
+(</SPAN><I>sv_destroy</I><SPAN STYLE="font-style: normal">
+</SPAN><I>sv_create</I><SPAN STYLE="font-style: normal">).</SPAN></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; text-decoration: none"><BR>
+</P>
+<OL>
+	<OL START=2>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><U>Utilisation :</U></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Lorsque l'on ex&eacute;cute
+le programme serveur, aucun serveur n'est pas lanc&eacute; par
+d&eacute;faut. On se trouve sur une console permettant d'ex&eacute;cuter
+des commandes. Voici la liste des commandes :</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>quit</I> : quitter le
+programme</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>help</I> / <I>list</I>
+: afficher la liste des commandes</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_prev</I> / <I>sv_next</I>
+: passer au serveur pr&eacute;c&eacute;dent / suivant</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_create</I> : lancer
+un nouveau serveur (le port doit &ecirc;tre pr&eacute;cis&eacute;)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_destroy</I> :
+d&eacute;truire le serveur courant</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_start</I> : lancer
+la partie sur le serveur courant</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_stop</I> : stopper
+le serveur sur le serveur courant</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_pause</I> : mettre
+le serveur en pause</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><SPAN STYLE="text-decoration: none"><I>sv_unpause</I></SPAN>
+: enlever le serveur du mode pause</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_list</I> : liste
+des clients sur le serveur</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_kick</I> :
+d&eacute;connecter un client (il faut pr&eacute;ciser son nom)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_get</I> : afficher
+la valeur d'une option du serveur (il faut pr&eacute;ciser l'option)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_get</I> :
+positionner la valeur d'une option (il faut pr&eacute;ciser l'option
+et la valeur)</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Lorsqu'un serveur est mis
+en pause, aucun des clients ne pourra taper de mot. La destruction
+d'un serveur par la commande <I>sv_destroy</I> ainsi que la commande
+<I>quit</I> ferme correctement tous les descripteurs ouverts.</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Voici une s&eacute;quence
+de commandes permettant de lancer deux serveurs, l'un sur le port
+2044 et l'autre sur le port 1983, puis de mettre en pause le serveur
+sur le port 2044 :</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_create 2044</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_start</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_create 1983</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_start</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_prev</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><I>sv_pause</I></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; text-decoration: none"><BR>
+</P>
+<OL>
+	<OL START=3>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><U>Appels syst&egrave;mes
+		et fonctionnement du programme :</U></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Notre programme
+serveur est bas&eacute; sur un syst&egrave;me d'&eacute;v&egrave;nement
+(event.c/h). Il agit en fonction des &eacute;v&egrave;nements qui se
+produisent sur un ensemble de descripteurs mais aussi en fonction du
+temps qui s'&eacute;coule. Par exemple, pour &ecirc;tre pr&eacute;venues
+des &eacute;ventuels changement d'&eacute;tat sur un descripteur, les
+autres parties du programme doivent s'enregistrer au pr&egrave;s de
+la boucle d'&eacute;v&egrave;nement pour en &ecirc;tre pr&eacute;venue
+par un m&eacute;canisme de fonction de rappel.</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Voici la liste des
+appels syst&egrave;mes utilis&eacute;s par notre programme serveur :</SPAN></FONT></P>
+<UL>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><SPAN STYLE="background: transparent"><SPAN STYLE="font-weight: medium"><SPAN STYLE="text-decoration: none"><FONT SIZE=3><I>open
+	/ read</I> / <I>write / close</I></FONT></SPAN></SPAN></SPAN></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent"><I>poll</I> (ou
+	<I>select</I> selon la disponibilit&eacute; du syst&egrave;me)</SPAN></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">gettimeofday</SPAN></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">socket / bind /
+	listen / accept / shutdown</SPAN></FONT></P>
+</UL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; text-decoration: none"><BR>
+</P>
+<OL>
+	<OL START=4>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium">
+		<FONT SIZE=3><U><SPAN STYLE="background: transparent">Limitations :</SPAN></U></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Notre programme
+utilise un algorithme de placement de mots na&iuml;f. On tire d'abord
+un mot au hasard dans le dictionnaire. Ce mot ne doit pas &ecirc;tre
+pr&eacute;sent sur la grille de jeu. On prend ensuite une ligne au
+hasard, et on essaye de trouver un emplacement pour positionner ce
+mot sur cette ligne en partant de la gauche. Chacune de ses op&eacute;ration
+sera r&eacute;p&eacute;t&eacute;e trois fois. Si au bout de 3 essais
+on ne parvient pas &agrave; trouver de position satisfaisante le
+programme r&eacute;essayera alors plus tard. Cet algorithme a deux
+inconv&eacute;nients majeurs ; il n'assure pas qu'&agrave; chaque
+passage un mot sera plac&eacute; sur la grille, il a tendance &agrave;
+accumuler les mots sur le c&ocirc;t&eacute; gauche de la grille.</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<OL START=2>
+	<LI><P ALIGN=CENTER STYLE="margin-bottom: 0cm"><FONT SIZE=4><U><B><SPAN STYLE="background: transparent">Le
+	client :</SPAN></B></U></FONT></P>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Le client que nous
+avons &eacute;crit utilise la librairie graphique GTK+ 2. Les
+fonctionnalit&eacute;s qu'il impl&eacute;mente sont les suivantes :</SPAN></FONT></P>
+<UL>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">Fichier de
+	configuration (permet la sauvegarde des options)</SPAN></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">Affichage des
+	mots en couleur</SPAN></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">Affichage du
+	score des &eacute;quipes et des joueurs</SPAN></FONT></P>
+	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+	<FONT SIZE=3><SPAN STYLE="background: transparent">Fen&ecirc;tre de
+	chat (permettant de communiquer avec les autres joueurs)</SPAN></FONT></P>
+</UL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<OL>
+	<OL>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium">
+		<FONT SIZE=3><U><SPAN STYLE="background: transparent">Fichier de
+		configuration :</SPAN></U></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Le fichier de
+configuration doit se trouver dans le r&eacute;pertoire courant et
+son nom doit &ecirc;tre cl.cfg. Il n'est pas n&eacute;cessaire au
+chargement du programme. Il sera recr&eacute;&eacute; &agrave; la
+sortie du programme avec les valeurs rentr&eacute;es par
+l'utilisateur. Voici un exemple de fichier de configuration :</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent"># COMMENT</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">sv_port = 2044</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">name = Dj-Death</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">sv_host =
+localhost</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">team = ATR</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">D&eacute;tail des
+options :</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent"><I>sv_host</I> :
+adresse du serveur auquel l'on doit se connecter</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent"><I>sv_port</I> :
+port du serveur</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent"><I>name</I> : nom
+du joueur</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent"><I>team</I> : nom
+de l'&eacute;quipe du joueur</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<OL>
+	<OL START=2>
+		<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium">
+		<FONT SIZE=3><U><SPAN STYLE="background: transparent">Utilisation :</SPAN></U></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<SPAN STYLE="background: transparent"> <FONT SIZE=3>Le client se
+compose de trois fen&ecirc;tres, une pour jouer (taper les mots), une
+pour afficher des scores des &eacute;quipes et des joueurs, et enfin
+une derni&egrave;re pour afficher les messages. Lorsque l'utilisateur
+souhaite se connecter &agrave; un serveur, il doit aller dans le menu
+Fichier puis Se Connecter et entrer l'adresse du serveur auquel il
+souhaite se connecter ainsi que le port. Si il n'a pas pr&eacute;cis&eacute;
+son nom, une fen&ecirc;tre s'ouvrira pour qu'il tape son nom ainsi
+que son &eacute;quipe. L'utilisateur pourra ensuite taper les mots
+qui apparaissent &agrave; l'&eacute;cran.</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<OL START=3>
+	<LI><P ALIGN=CENTER STYLE="margin-bottom: 0cm; font-style: normal"><FONT SIZE=4><U><B><SPAN STYLE="background: transparent">Compilation
+	:</SPAN></B></U></FONT></P>
+</OL>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><SPAN STYLE="background: transparent">Notre projet se
+compile de la mani&egrave;re suivante ; il faut tout d'abord se
+placer dans le r&eacute;pertoire des sources puis faire :</SPAN></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">$ ./configure</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-weight: medium; text-decoration: none">
+<FONT SIZE=3><I><SPAN STYLE="background: transparent">$ make</SPAN></I></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm; font-style: normal; font-weight: medium; text-decoration: none">
+<BR>
+</P>
+</BODY>
+</HTML>

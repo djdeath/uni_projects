@@ -1,0 +1,65 @@
+;; Object optimisation/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "optimisation/"
+  :tables (list 
+   (semanticdb-table "edge.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "edge.rb"
+    )
+   (semanticdb-table "far.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "far.rb"
+    )
+   (semanticdb-table "graph.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "graph.rb"
+    )
+   (semanticdb-table "heap.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "heap.rb"
+    )
+   (semanticdb-table "main.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "main.rb"
+    )
+   (semanticdb-table "map.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "map.rb"
+    )
+   (semanticdb-table "pile.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "pile.rb"
+    )
+   (semanticdb-table "point.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "point.rb"
+    )
+   (semanticdb-table "prim.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "prim.rb"
+    )
+   (semanticdb-table "sepeval.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "sepeval.rb"
+    :pointmax 468
+    )
+   (semanticdb-table "tree.rb"
+    :major-mode 'c-mode
+    :tags 'nil
+    :file "tree.rb"
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )
